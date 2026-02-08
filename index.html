@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#VI GANG | LEGAL & COMPLIANCE</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: 'Space Mono', monospace;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: radial-gradient(#d1d1d1 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+        }
+
+        /* Столбики #VI */
+        .side-bar {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            opacity: 0.04; 
+            font-size: 1.8rem;
+            font-weight: 700;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .left { left: 4vw; }
+        .right { right: 4vw; }
+        .scroll { display: flex; flex-direction: column; animation: moveUp 60s linear infinite; }
+        .right .scroll { animation: moveDown 60s linear infinite; }
+        @keyframes moveUp { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+        @keyframes moveDown { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+        .tag-item { padding: 25px 0; }
+
+        /* Центр */
+        .main { text-align: center; z-index: 10; }
+        .logo { font-size: clamp(5rem, 15vw, 10rem); font-weight: 700; letter-spacing: -8px; line-height: 1; }
+        .sub { font-size: 0.9rem; letter-spacing: 12px; text-transform: uppercase; margin-top: 15px; opacity: 0.7; }
+
+        /* Футер */
+        footer {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            opacity: 0.4;
+            text-align: center;
+            z-index: 10;
+        }
+        .legal-link { color: #000; text-decoration: underline; cursor: pointer; margin-left: 10px; }
+
+        /* Apple-Style Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #ffffff;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        .modal-container { max-width: 850px; margin: 0 auto; padding: 120px 50px; }
+        .close-btn {
+            position: fixed;
+            top: 40px; right: 50px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            font-weight: 700;
+            border: 1px solid #000;
+            padding: 8px 20px;
+            background: #fff;
+            text-transform: uppercase;
+        }
+        .legal-content { text-align: left; line-height: 1.7; color: #000; }
+        .legal-content h1 { font-size: 1.8rem; margin-bottom: 50px; letter-spacing: -1px; }
+        .legal-content h2 { font-size: 0.85rem; margin: 40px 0 15px; text-transform: uppercase; border-bottom: 1px solid #000; padding-bottom: 5px; font-weight: 700; }
+        .legal-content p { font-size: 0.8rem; margin-bottom: 15px; text-align: justify; }
+        .legal-content .important { text-transform: uppercase; font-weight: 700; background: #f5f5f5; padding: 10px; display: block; margin: 20px 0; border: 1px solid #eee; }
+
+        .modal::-webkit-scrollbar { width: 3px; }
+        .modal::-webkit-scrollbar-thumb { background: #000; }
+    </style>
+</head>
+<body>
+
+    <div class="side-bar left"><div class="scroll" id="l"></div></div>
+    <div class="side-bar right"><div class="scroll" id="r"></div></div>
+
+    <div class="main">
+        <div class="logo">#VI</div>
+        <div class="sub">VIVUS ITERUM</div>
+    </div>
+
+    <footer>
+        <span>© 2026 #VI GANG. SYSTEM STATUS: OPERATIONAL.</span>
+        <span class="legal-link" onclick="toggleModal(true)">LEGALS & COMPLIANCE</span>
+    </footer>
+
+    <div id="m" class="modal">
+        <div class="close-btn" onclick="toggleModal(false)">Back to System [X]</div>
+        <div class="modal-container">
+            <div class="legal-content">
+                <h1>Условия использования и Протоколы участия #VI GANG</h1>
+                
+                <span class="important">ВНИМАНИЕ: ДАННЫЙ ДОКУМЕНТ ОПРЕДЕЛЯЕТ ПРАВИЛА ВЗАИМОДЕЙСТВИЯ С ТРЕП-ОБЪЕДИНЕНИЕМ #VI. ЛЮБОЕ ИСПОЛЬЗОВАНИЕ МАТЕРИАЛОВ ОЗНАЧАЕТ БЕЗУСЛОВНОЕ ПРИНЯТИЕ ВСЕХ ПУНКТОВ.</span>
+
+                <h2>1. Статус объединения</h2>
+                <p>#VI GANG (далее — «Конгломерат») является независимым творческим институтом, действующим под маркой Vivus Iterum. Все интеллектуальные права на аудио, видео и текстовые коды принадлежат совету Конгломерата.</p>
+
+                <h2>2. Определения и терминология</h2>
+                <p>Под «Контентом» понимаются любые звуковые дорожки в жанрах Ambient Trap и Plugg, а также любые текстовые наброски (бары), созданные внутри системы. «Мембер» — авторизованный участник Конгломерата, прошедший процедуру верификации.</p>
+
+                <h2>3. Интеллектуальная собственность (IP)</h2>
+                <p>Конгломерат сохраняет за собой все исключительные права на «Sound Signature» — уникальный звуковой оттиск. Использование аналогичных звуковых текстур без лицензии рассматривается как нарушение IP-протокола #VI-09.</p>
+
+                <h2>4. Кодекс поведения мемберов</h2>
+                <p>Каждый мембер обязан соблюдать эстетическую целостность Конгломерата. Запрещено разглашение внутренних методик сведения звука, распространение сырых демо-записей и вступление в коллаборации с субъектами, чья репутация противоречит философии Vivus Iterum.</p>
+
+                <h2>5. Протоколы конфиденциальности мемберов (NDA)</h2>
+                <p>Мемберы обязуются соблюдать режим строгой тишины в отношении предстоящих релизов и «рецептов» (sound recipes). Утечка данных ведет к немедленной аннуляции статуса мембера без права на восстановление (Vivus Iterum Termination).</p>
+
+                <h2>6. Права на псевдонимы и теги</h2>
+                <p>Использование тега #VI в любых медиа-ресурсах допустимо только при наличии цифрового сертификата участника. Самовольное присвоение тега является актом фальсификации интеллектуальной личности.</p>
+
+                <h2>7. Финансовые взаимоотношения</h2>
+                <p>Распределение роялти внутри Конгломерата осуществляется согласно внутреннему коэффициенту вклада. Любые споры решаются внутри закрытого совета #VI без привлечения внешних юридических инстанций.</p>
+
+                <h2>8. Ограничение ответственности за влияние звука</h2>
+                <p>Конгломерат не несет ответственности за любые когнитивные изменения, вызванные прослушиванием Ambient Trap контента. Использование частот ниже 30Гц осуществляется на усмотрение конечного пользователя.</p>
+
+                <h2>9. Территориальное действие</h2>
+                <p>Действие данных правил распространяется на все физические и цифровые пространства (метавселенные, стриминг-платформы, блокчейн-сети), где присутствует символика #VI.</p>
+
+                <h2>10. Порядок выхода из состава (Exit Protocol)</h2>
+                <p>Выход из состава мемберов возможен только после завершения всех обязательств по текущим альбомам. После выхода субъект лишается права использовать любые наработки, созданные в период участия в #VI GANG.</p>
+
+                <h2>11. Санкции и деактивация</h2>
+                <p>В случае нарушения пунктов 4 и 5, Конгломерат оставляет за собой право на «Digital Purge» — удаление всех упоминаний и работ нарушителя из официальных архивов системы.</p>
+
+                <h2>12. Изменения и поправки</h2>
+                <p>Совет #VI GANG оставляет за собой право изменять данное Соглашение в одностороннем порядке. Новая версия вступает в силу с момента публикации на данном ресурсе.</p>
+                
+                <p style="margin-top: 60px; font-size: 0.7rem; color: #888; border-top: 1px solid #eee; padding-top: 20px;">
+                    ISSUED BY: #VI COMPLIANCE DEPARTMENT<br>
+                    LOCATION: SYSTEM ENCRYPTED<br>
+                    DATE: 08.02.2026
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tags = Array(60).fill('<div class="tag-item">#VI</div>').join('');
+        document.getElementById('l').innerHTML = tags;
+        document.getElementById('r').innerHTML = tags;
+
+        function toggleModal(show) {
+            document.getElementById('m').style.display = show ? 'block' : 'none';
+            document.body.style.overflow = show ? 'hidden' : 'auto';
+        }
+    </script>
+</body>
+</html>
